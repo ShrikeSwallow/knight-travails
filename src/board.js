@@ -13,13 +13,9 @@ export const generateBoard = () => {
 export const generateAdjList = () => {
   const adjacencyList = [];
 
-  // REWRITE BELOW
-  // SO IT USES A HASH TABLE
-  // CONVERT I + J INTO A NUMBER 0 < X < 64
   for (let i = 0; i < 8; i++) {
     let draw = "";
     for (let j = 0; j < 8; j++) {
-      //adjacencyList[[i, j]].push([i, j]);
       let converted = i * 8 + j;
       draw = draw + " " + converted;
       adjacencyList[converted] = [];
@@ -59,7 +55,7 @@ export const generateAdjList = () => {
         }
       }
     }
-    console.log(draw);
+    //console.log(draw);
   }
   return adjacencyList;
 };
