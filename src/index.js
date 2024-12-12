@@ -4,11 +4,14 @@ import { knightMoves } from "./knightMoves";
 
 //const board = generateBoard();
 const list = generateAdjList();
-console.log(list);
-//knightMoves([0, 0], [1, 2]);
-const flatList = list.flat();
-//console.log(flatList);
-
-list.forEach((i, j) => {
-  console.log(list[(i, j)]);
+const curatedList = [];
+list.forEach((ele) => {
+  ele.sort((a, b) => a - b);
+  const tempSet = new Set(ele);
+  curatedList.push([...tempSet]);
 });
+console.log(list);
+console.log(curatedList);
+// const curatedList = [...tempSet];
+// console.log(curatedList);
+//knightMoves([0, 0], [1, 2]);
