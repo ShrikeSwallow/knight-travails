@@ -10,7 +10,7 @@ list.forEach((ele) => {
   const tempSet = new Set(ele);
   curatedList.push([...tempSet]);
 });
-console.log(list);
+//console.log(list);
 console.log(curatedList);
 // const curatedList = [...tempSet];
 // console.log(curatedList);
