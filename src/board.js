@@ -55,12 +55,16 @@ export const generateAdjList = () => {
         }
       }
     }
-    //console.log(draw);
+    console.log(draw);
   }
+  adjacencyList.forEach((ele) => {
+    ele.sort((a, b) => a - b);
+  });
   return adjacencyList;
 };
 export const convertCoordinates = (x, y) => {
   if (x < 0 || y < 0 || x > 7 || y > 7) {
     throw new Error("Coordinates outside of board");
   }
+  return x * 8 + y;
 };
