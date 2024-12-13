@@ -1,16 +1,21 @@
 import { generateAdjList, convertCoordinates } from "./board";
 
-const searchDFS = (start, end, board, visited, path) => {
-  visited[start] = true;
-  path.push(start);
+const searchDFS = (start, end, board, visited, path, iteration) => {
+  visited[iteration] = [...visited[iteration - 1]];
+  visited[iteration][start] = true;
+  path[iteration] = [...path[iteration - 1]];
+  if (path[iteration].length > 6) {
+    return;
+  }
+  path[iteration].push(start);
   if (start === end) {
-    console.log("Success");
-    console.log(path.join(" -> "));
-    return true;
+    console.log(path[iteration].join(" -> "));
+    return;
+    //return true;
   }
   board[start].forEach((vertex) => {
-    if (visited[vertex] !== true) {
-      searchDFS(vertex, end, board, visited, path);
+    if (visited[iteration][vertex] !== true) {
+      searchDFS(vertex, end, board, visited, path, iteration + 1);
     }
   });
   //console.log("search ended");
@@ -47,6 +52,9 @@ export const knightMoves = ([startX, startY], [endX, endY]) => {
   const end = convertCoordinates(endX, endY);
   const path = [];
   const visited = [];
-  searchDFS(start, end, board, visited, path);
+  let iteration = 0;
+  visited[iteration] = [];
+  path[iteration] = [];
+  searchDFS(start, end, board, visited, path, iteration + 1);
   //searchBFS(start, end, board, visited, path);
 };
