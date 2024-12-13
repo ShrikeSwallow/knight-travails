@@ -5,4 +5,4 @@ import { knightMoves } from "./knightMoves";
 const list = generateAdjList();
 //const curatedList = [];
 console.log(list);
-knightMoves([0, 0], [7, 7]);
+knightMoves([0, 0], [2, 2]);
