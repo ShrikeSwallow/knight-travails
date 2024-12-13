@@ -4,7 +4,7 @@ const searchDFS = (start, end, board, visited, path, iteration) => {
   visited[iteration] = [...visited[iteration - 1]];
   visited[iteration][start] = true;
   path[iteration] = [...path[iteration - 1]];
-  if (path[iteration].length > 6) {
+  if (path[iteration].length > 5) {
     return;
   }
   path[iteration].push(start);
